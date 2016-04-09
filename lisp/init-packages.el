@@ -54,4 +54,11 @@
 (require 'popwin)
 (popwin-mode t)
 
+(defun tramp-term--initialize (hostname)
+  "Send bash commands to set up tramp integration."
+  (term-send-raw-string (format "
+alias precmd 'echo \"\\033AnSiTu\" \"zhjs\"; echo \"\\033AnSiTc\" \"1011@Zhjs\"; echo \"\\033AnSiTh\" \"%s\"'
+clear
+" hostname)))
+
 (provide 'init-packages)
