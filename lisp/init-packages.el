@@ -18,6 +18,7 @@
 			 tramp-term
 			 yasnippet
 			 popwin
+			 chinese-fonts-setup
 			 ) "Default packages")
 (setq package-selecteqd-packages wrydz/packages)
 
@@ -36,16 +37,13 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 
-;; 自动输入匹配括号或引号
-(require 'smartparens-config)
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 
-;; 删除多个空格
-(require 'hungry-delete)
+;; delete few whitespaces
 (global-hungry-delete-mode)
 
-;; 全局打开company自动补全
+;; enable blobal company
 (global-company-mode t)
 
 ;; load monokai theme
@@ -54,11 +52,17 @@
 (require 'popwin)
 (popwin-mode t)
 
-(defun tramp-term--initialize (hostname)
-  "Send bash commands to set up tramp integration."
-  (term-send-raw-string (format "
-alias precmd 'echo \"\\033AnSiTu\" \"zhjs\"; echo \"\\033AnSiTc\" \"1011@Zhjs\"; echo \"\\033AnSiTh\" \"%s\"'
-clear
-" hostname)))
+;; open org-bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
+(yas-reload-all)
+(add-hook 'prog-mode-hook 'yas-minor-mode)
+
+;;
+(require 'chinese-fonts-setup)
 
 (provide 'init-packages)

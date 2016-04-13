@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <16/04/08 17:32:32 /home/wrydz/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/04/10 21:21:57 /home/wrydz/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -40,4 +40,21 @@
   ("ls" "/bin/ls --color=never")
   ("ls-dired" t)
   ("uid-integer" 601)
-  ("~" "/zhjs")))
+  ("~" "/zhjs"))
+ (["scp" "house" "house" nil nil]
+  ("uname" "Linux 3.2.0-4-686-pae")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("locale" "LC_ALL=C")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("stat" "\\stat")
+  ("file-exists" "test -e")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1000)
+  ("gid-string" "house")
+  ("gvfs-monitor-dir" "/usr/bin/gvfs-monitor-dir")))
