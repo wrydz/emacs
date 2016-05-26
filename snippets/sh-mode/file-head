@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: fh
+# key: fh
+# --
+#!/bin/bash
+
+# function : ${1:This is a shell script !}
+# email    : wrydzfiying@163.com
+# author   : wrydz
+# date     : `(insert (format-time-string "%Y-%m-%d %H:%M:%S" (current-time)))`
+
+$0

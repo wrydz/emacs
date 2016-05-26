@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: fh
+# key: fh
+# --
+#!/usr/bin/env python
+# -*- coding: ${1:gb2312} -*-
+'''
+    function : ${2:This is a python script !}
+    email    : wrydzfiying@163.com
+    author   : wrydz
+    created  : `(insert (format-time-string "%Y-%m-%d %H:%M:%S" (current-time)))`
+'''
+
+import sys
+${3:}
+
+# python2.x 输出中文 unicode码
+reload(sys)
+sys.setdefaultencoding("${4:gb2312}")
+
+$0
