@@ -23,7 +23,7 @@
 			 tramp-term
 			 yasnippet
 			 popwin
-			 chinese-fonts-setup
+			 ;;chinese-fonts-setup
 			 auto-dictionary
 			 youdao-dictionary
 			 flycheck
