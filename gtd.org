@@ -1,5 +1,0 @@
-* ¹¤×÷°²ÅÅ
-
-** TODO [#B] test
-test the function
-
