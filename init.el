@@ -4,7 +4,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.config/emacs/lisp/")
 
 (require 'init-func)
 (require 'init-packages)
@@ -12,6 +12,11 @@
 (require 'init-better-defaults)
 (require 'init-org)
 (require 'init-keybindings)
+(require 'init-treemacs)
+(require 'init-company)
+(require 'init-lsp)
+(require 'init-scala)
+;;(require 'init-project)
 
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)

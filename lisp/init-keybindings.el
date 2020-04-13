@@ -34,7 +34,8 @@
   "fs" 'save-buffer
   "bb" 'switch-to-buffer
   "bk" 'kill-buffer
-  "fr" 'recentf-open-files
+  "TAB" 'counsel-switch-buffer
+  "fr" 'counsel-recentf
   "pf" 'counsel-git
   "ps" 'helm-do-ag-project-root
   "0"  'select-window-0
@@ -43,8 +44,8 @@
   "3"  'select-window-3
   "w/" 'split-window-right
   "w-" 'split-window-below
-  ":"  'counsel-M-x
-  "wM" 'delete-other-windows
+  "SPC"  'counsel-M-x
+  "wm" 'delete-other-windows
   "qq" 'save-buffers-kill-terminal
   "ci" 'evilnc-comment-or-uncomment-lines
   "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
