@@ -11,3 +11,5 @@ cnfonts
 elpa
 places
 url
+.*
+project*

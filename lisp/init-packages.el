@@ -47,10 +47,15 @@
 			 treemacs
 			 lsp-mode
 			 lsp-ui
+			 lsp-treemacs
 			 projectile
 			 exec-path-from-shell
 			 powerline
 			 scala-mode
+			 projectile
+			 find-file-in-project
+			 sqlformat
+			 org-bullets
 			 ) "Default packages")
 
 (setq package-selecteqd-packages wrydz/packages)
@@ -156,3 +161,4 @@
     (ivy--cd "~/")))
 
 (provide 'init-packages)
+;;; init-packages ends here

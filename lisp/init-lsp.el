@@ -1,3 +1,8 @@
+;;; init-lsp --- Summary
+;;; Commentary:
+
+
+;;; Code:
 (use-package lsp-mode
   :defer t
   :commands lsp
@@ -7,7 +12,7 @@
   (lsp-file-watch-threshold 2000)
   (read-process-output-max (* 1024 1024))
   :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
-  :hook ((java-mode python-mode go-mode
+  :hook ((java-mode python-mode go-mode scala-mode
           js-mode js2-mode typescript-mode web-mode
           c-mode c++-mode objc-mode) . lsp))
 
@@ -34,7 +39,7 @@
   (lsp-ui-sideline-show-code-actions nil)
   :config
   ;; Use lsp-ui-doc-webkit only in GUI
-  (if *sys/gui*
+  (if (or (eq window-system 'ns) (eq window-system 'w32))
       (setq lsp-ui-doc-use-webkit t))
   ;; WORKAROUND Hide mode-line of the lsp-ui-imenu buffer
   ;; https://github.com/emacs-lsp/lsp-ui/issues/243
@@ -47,3 +52,4 @@
   :custom (company-lsp-cache-candidates 'auto))
 
 (provide 'init-lsp)
+;;; init-lsp.el ends here

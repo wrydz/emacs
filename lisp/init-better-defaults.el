@@ -1,3 +1,11 @@
+;;; init-better-defaults --- Summary
+
+
+;;; Commentary:
+
+
+;;; Code:
+
 ;; 关闭备份文件
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -20,12 +28,12 @@
 					    ))
 
 (defun indent-buffer()
-  (message "")
+  (message "a")
   (interactive)
   (indent-region (point-min) (point-max)))
 
 (defun indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer. "
+  "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
     (if (region-active-p)
@@ -111,10 +119,12 @@
 (setq default-directory "~/")
 
 ;; load shell env
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac ns x))
   (use-package exec-path-from-shell
     :ensure t
     :config
     (exec-path-from-shell-initialize)))
 
+
 (provide 'init-better-defaults)
+;;; init-better-defaults ends here
