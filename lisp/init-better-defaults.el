@@ -1,6 +1,4 @@
 ;;; init-better-defaults --- Summary
-
-
 ;;; Commentary:
 
 
@@ -9,11 +7,6 @@
 ;; 关闭备份文件
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-
-;; 打开recentf autoload
-;; (require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
 
 ;; 改变外部文件自动加载
 (global-auto-revert-mode t)
@@ -28,7 +21,7 @@
 					    ))
 
 (defun indent-buffer()
-  (message "a")
+  "Aaaa a aaaa."
   (interactive)
   (indent-region (point-min) (point-max)))
 
@@ -44,8 +37,6 @@
 	(indent-buffer)
 	(message "Indented buffer.")))))
 
-;; 在org中使_导出为下划线
-(setq org-export-with-sub-superscripts (quote {}))
 
 ;; 使补全在引号内正常工作
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
@@ -93,6 +84,9 @@
 (use-package recentf
   :ensure nil
   :hook (after-init . recentf-mode)
+  :config
+  (recentf-mode 1)
+  (setq recentf-max-menu-items 25)
   :custom
   (recentf-auto-cleanup "05:00am")
   (recentf-max-saved-items 200)
@@ -119,11 +113,11 @@
 (setq default-directory "~/")
 
 ;; load shell env
-(when (memq window-system '(mac ns x))
-  (use-package exec-path-from-shell
-    :ensure t
-    :config
-    (exec-path-from-shell-initialize)))
+(use-package exec-path-from-shell
+ :if (memq window-system '(mac ns x))
+ :ensure t
+ :config
+ (exec-path-from-shell-initialize))
 
 
 (provide 'init-better-defaults)

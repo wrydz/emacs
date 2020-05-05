@@ -1,7 +1,6 @@
 ;;; init-lsp --- Summary
 ;;; Commentary:
 
-
 ;;; Code:
 (use-package lsp-mode
   :defer t

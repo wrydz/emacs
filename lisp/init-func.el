@@ -1,3 +1,7 @@
+;;; init-func --- Summary
+;;; Commentary:
+
+;;; Code:
 (defun open-my-init-file ()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
@@ -11,7 +15,7 @@
 
 ;; 删除dos下的换行符\M
 (defun remove-dos-eol ()
-  "Replace DOS eolns CR LF with Unix eolns CR"
+  "Replace DOS eolns CR LF with Unix eolns CR."
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
@@ -22,3 +26,4 @@
   (find-file "e:/GTD/tasks.org"))
 
 (provide 'init-func)
+;;; init-func.el ends here

@@ -1,3 +1,8 @@
+;;; init-ui.el --- Summary:
+;;; Commentary:
+
+
+;;; Code:
 ;; 高亮光标所在行
 (global-hl-line-mode t)
 
@@ -32,10 +37,12 @@
   (cnfonts-enable))
 
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 (use-package powerline
   :config
   (powerline-default-theme))
 
 (provide 'init-ui)
+;;; init-ui.el ends here

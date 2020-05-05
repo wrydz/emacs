@@ -1,3 +1,7 @@
+;;; init-treemacs --- Summary:
+;;; Commentary:
+
+;;; Code:
 (use-package treemacs
   :init
   (with-eval-after-load 'winum
@@ -59,3 +63,5 @@
   :after (treemacs projectile))
 
 (provide 'init-treemacs)
+;;; init-treemacs.el ends here
+

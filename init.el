@@ -10,7 +10,7 @@
 ;;; Code:
 (package-initialize)
 
-(add-to-list 'load-path "~/.config/emacs/lisp/")
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-func)
 (require 'init-packages)

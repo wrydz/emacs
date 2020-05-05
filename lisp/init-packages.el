@@ -14,78 +14,34 @@
           )
 	))
 
-;; add whatever packages you want here
-(defvar wrydz/packages '(
-			 company
-			 company-box
-			 monokai-theme
-			 hungry-delete
-			 swiper
-			 counsel
-			 smartparens
-			 js2-mode
-			 org-bullets
-			 tramp-term
-			 yasnippet
-			 popwin
-			 auto-dictionary
-			 youdao-dictionary
-			 flycheck
-			 keyfreq
-			 auto-yasnippet
-			 iedit
-			 evil
-			 evil-leader
-			 evil-escape
-			 evil-surround
-			 window-numbering
-			 evil-nerd-commenter
-			 which-key
-                         use-package
-			 all-the-icons
-			 cnfonts
-			 treemacs
-			 lsp-mode
-			 lsp-ui
-			 lsp-treemacs
-			 projectile
-			 exec-path-from-shell
-			 powerline
-			 scala-mode
-			 projectile
-			 find-file-in-project
-			 sqlformat
-			 org-bullets
-			 ) "Default packages")
+(unless (package-installed-p 'evil)
+  (package-install 'use-package))
+(require 'use-package)
 
-(setq package-selecteqd-packages wrydz/packages)
-
-(defun wrydz/packages-installed-p ()
-  (loop for pkg in wrydz/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (wrydz/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg wrydz/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
+(setq use-package-always-ensure t)
 
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-(smartparens-global-mode t)
+(use-package smartparens
+  :ensure t
+  :config
+  (smartparens-global-mode t)
+)
 
 ;; delete few whitespaces
-(global-hungry-delete-mode)
+(use-package hungry-delete
+  :ensure t
+  :config
+  (global-hungry-delete-mode)
+)
 
 ;; enable blobal company
-(global-company-mode t)
+;;(global-company-mode t)
 
 ;; load monokai theme
-(load-theme 'monokai t)
+;;(load-theme 'monokai t)
 
-(require 'popwin)
-(popwin-mode t)
+;;(require 'popwin)
+;;(popwin-mode t)
 
 ;; open org-bullets
 ;;(require 'org-bullets)
@@ -93,17 +49,17 @@
 
 ;; yasnippet
 ;; (require 'yasnippet)
-(yas-global-mode 1)
-(yas-reload-all)
-(add-hook 'prog-mode-hook 'yas-minor-mode)
+;;(yas-global-mode 1)
+;;(yas-reload-all)
+;;(add-hook 'prog-mode-hook 'yas-minor-mode)
 
 ;; flyspell
-(require 'auto-dictionary)
-(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
+;;(require 'auto-dictionary)
+;;(add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 ;; youdao-dictionary
 ;; Enable Cache
-(setq url-automatic-caching t)
+;;(setq url-automatic-caching t)
 
 ;; flycheck
 ;;(global-flycheck-mode)
@@ -111,25 +67,40 @@
 ;;
 ;;(require 'iedit-mode)
 
-;; evil
-(evil-mode 1)
-(setcdr evil-insert-state-map nil)
-(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
 
-;; evil-leader
-(global-evil-leader-mode)
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
 
-(evil-escape-mode)
+  (use-package evil-escape
+    :ensure t
+    :config
+    (evil-escape-mode))
 
-(window-numbering-mode 1)
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
+  )
 
-(require 'evil-surround)
-(global-evil-surround-mode)
+(use-package window-numbering
+  :ensure t
+  :config
+  (window-numbering-mode 1))
 
 ;; 快速添加注释
-(evilnc-default-hotkeys)
+;;(evilnc-default-hotkeys)
 
-(which-key-mode)
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode)
+)
 
 
 (use-package ivy
@@ -161,4 +132,4 @@
     (ivy--cd "~/")))
 
 (provide 'init-packages)
-;;; init-packages ends here
+;;; init-packages.el ends here

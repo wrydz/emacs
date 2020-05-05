@@ -4,12 +4,13 @@ elpa
 snippets
 recentf
 .cache
-.git
+.lsp-session-v1
 abbrev_defs
 auto-save-list
+amx-items
+projectile-bookmarks.eld
 cnfonts
 elpa
 places
 url
-.*
-project*
+transient
