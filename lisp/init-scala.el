@@ -1,3 +1,7 @@
+;;; init-scala --- Summary:
+;;; Commentary:
+
+;;; Code:
 (use-package scala-mode
   :mode "\\.s\\(cala\\|bt\\)$")
 
@@ -24,5 +28,16 @@
   (lsp-metals-treeview-enable t)
   (setq lsp-metals-treeview-show-when-views-received t))
 
+(use-package dap-mode
+  :hook
+  (lsp-mode . dap-mode)
+  (lsp-mode . dap-ui-mode)
+  )
+
+;; Use the Debug Adapter Protocol for running tests and debugging
+(use-package posframe
+  ;; Posframe is a pop-up tool that must be manually installed for dap-mode
+  )
 
 (provide 'init-scala)
+;;; init-scala.el ends here
