@@ -11,6 +11,9 @@
 ;; 改变外部文件自动加载
 (global-auto-revert-mode t)
 
+;; 关闭告警声
+(setq visible-bell 0)
+
 ;; 打开括号匹配
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 

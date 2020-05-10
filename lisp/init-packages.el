@@ -1,8 +1,8 @@
-;;; package --- init-packages
+;;; init-packages.el --- Summary:
 ;;; Commentary:
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 
 (when (>= emacs-major-version 26)
   (require 'package)
@@ -14,11 +14,16 @@
           )
 	))
 
-(unless (package-installed-p 'evil)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
   (package-install 'use-package))
-(require 'use-package)
 
-(setq use-package-always-ensure t)
+(eval-when-compile
+ (progn
+   (require 'use-package)
+   (setq use-package-always-ensure t)
+   ))
+
 
 ;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (use-package smartparens
@@ -79,13 +84,26 @@
 
   (use-package evil-escape
     :ensure t
-    :config
-    (evil-escape-mode))
+    :config (evil-escape-mode))
 
   (use-package evil-surround
     :ensure t
+    :config (global-evil-surround-mode))
+
+  (use-package evil-indent-textobject
+    :ensure t)
+
+  (use-package evil-org
+    :ensure t
     :config
-    (global-evil-surround-mode))
+    (evil-org-set-key-theme
+	  '(textobjects insert navigation additional shift todo heading))
+    (add-hook 'org-mode-hook (lambda () (evil-org-mode))))
+
+  (use-package powerline-evil
+    :ensure t
+    :config
+    (powerline-evil-vim-color-theme))
   )
 
 (use-package window-numbering

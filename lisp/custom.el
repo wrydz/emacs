@@ -5,8 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(cfs--current-profile-name "profile1" t)
  '(cfs--fontsize-steps '(4 3 4) t)
- '(company-idle-delay 0.08 t)
- '(company-minimum-prefix-length 1 t)
+ '(company-idle-delay 0.08)
+ '(company-minimum-prefix-length 1)
  '(evil-leader/leader "SPC")
  '(evil-want-C-u-scroll t)
  '(package-selected-packages
