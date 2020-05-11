@@ -32,9 +32,9 @@
 (evil-leader/set-key
   "ff" 'find-file
   "fs" 'save-buffer
-  "bb" 'switch-to-buffer
   "bk" 'kill-buffer
-  "TAB" 'counsel-switch-buffer
+;;  "bb" 'switch-to-buffer
+  "bb" 'counsel-switch-buffer
   "fr" 'counsel-recentf
   "pf" 'counsel-git
   "ps" 'helm-do-ag-project-root
@@ -55,6 +55,8 @@
   "cr" 'comment-or-uncomment-region
   "cv" 'evilnc-toggle-invert-comment-line-by-line
   "\\" 'evilnc-comment-operator ; if you prefer backslash key
+  "TAB" 'alternate-buffer
+  "aft" 'create-work-temp-file
   )
 
 (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
@@ -72,3 +74,4 @@
 	      )))
 
 (provide 'init-keybindings)
+;;; init-keybindings ends here

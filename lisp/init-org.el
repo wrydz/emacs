@@ -12,8 +12,6 @@
     ;; indent in org mode
     (setq org-startup-indented t)
 
-    ;; open agenda
-    (setq org-agenda-files '("~/org-notes"))
 
     ;; 在org中使_导出为下划线
     ;; (setq org-export-with-sub-superscripts (quote {}))
@@ -33,17 +31,26 @@
     ;; 	    ))
     ;; (setq calendar-holidays my-holidays)
 
+    ;; open agenda
+    (setq org-agenda-files '("~/org-notes"))
+    (setq org-agenda-dir "~/org-notes/")
+    (setq org-agenda-file-gtd (concat org-agenda-dir "gtd.org"))
+    (setq org-agenda-file-note (concat org-agenda-dir "note.org"))
 
     ;; config org templates
     (setq org-capture-templates
-	  '(("c" "Todo" entry (file+headline "e://GTD//tasks.org" "Company")
+	  '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Workspace")
 	     "* TODO [#B] %?\n  %i\n"
 	     :empty-lines 1)
-	    ("p" "Todo" entry (file+headline "e:/GTD/tasks.org" "Periodic")
+	    ("p" "personal" entry (file+headline org-agenda-file-gtd "Personal")
+	     "* TODO [#B] %?\n  %i\n"
+	     :empty-lines 1)
+	    ("i" "Todo" entry (file+headline org-agenda-file-note "Ideas")
 	     "* TODO [#B] %?\n  %i\n"
 	     :empty-lines 1)
 	    ))
 
+    (evil-leader/set-key "aoc" 'org-capture)
 
 
     (with-eval-after-load 'org-agenda
